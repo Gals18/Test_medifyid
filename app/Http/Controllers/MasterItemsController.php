@@ -23,8 +23,13 @@ class MasterItemsController extends Controller
 
       if (!empty($kode)) $data_search = $data_search->where('kode', $kode);
       if (!empty($nama)) $data_search = $data_search->where('nama', 'LIKE', '%' . $nama . '%');
-      if (!empty($hargamin)) $data_search = $data_search->where('harga_beli', '>=', $hargamin)->where('harga_beli', '<=', $hargamax);
-
+      // if (!empty($hargamin)) $data_search = $data_search->where('harga_beli', '>=', $hargamin)->where('harga_beli', '<=', $hargamax);
+      if (!empty($hargamin)) {
+         $data_search = $data_search->where('harga_beli', '>=', $hargamin);
+      }
+      if (!empty($hargamax)) {
+         $data_search = $data_search->where('harga_beli', '<=', $hargamax);
+      }
       $data_search = $data_search->select('kode', 'nama', 'jenis', 'harga_beli', 'laba', 'supplier')->orderBy('id')->get();
 
 
@@ -72,11 +77,11 @@ class MasterItemsController extends Controller
       $data_item->supplier = $request->supplier;
       $data_item->jenis = $request->jenis;
 
-      if ($request->hasFile('foto')) {
-         $data_item = $request->file('foto')->store('images', 'public');
-         return back()->with('success', 'Image uploaded successfully!');
-      }
-      return back()->with('error', 'No image file found.');
+      // if ($request->hasFile('foto')) {
+      //    $data_item = $request->file('foto')->store('images', 'public');
+      //    return back()->with('success', 'Image uploaded successfully!');
+      // }
+      // return back()->with('error', 'No image file found.');
 
       // dd($data_item);
       // die();

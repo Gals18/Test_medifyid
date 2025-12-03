@@ -47,10 +47,10 @@
                 <optio @if ($selected == 'ATK') selected @endif>ATK</option>
         </select>
     </div>
-    <div class="form-group">
+    {{-- <div class="form-group">
         <label>Upload Foto</label>
-        <input type="file" class="form-control" name="foto" required value="{{ $item->foto ?? '' }}">
-    </div>
+        <input type="file" class="form-control" name="foto" value="{{ $item->foto ?? '' }}">
+    </div> --}}
 
     <button class="btn btn-primary mt-3">Submit</button>
 
