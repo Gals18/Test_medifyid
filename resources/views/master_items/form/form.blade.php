@@ -51,7 +51,7 @@
     @php $selected = $item->kategori ?? '' @endphp
     <div class="form-group">
         <label>Kategori</label>
-        <select class="form-control" required name="jenis">
+        <select class="form-control" required name="kategori">
             <option @if ($selected == '') selected @endif value="">--Pilih--</option>
             @foreach ($kategori as $item)
                 <option @if ($selected == $item->kategori) selected @endif>{{ $item->nama }}</option>

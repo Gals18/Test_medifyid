@@ -78,7 +78,7 @@ class MasterItemsController extends Controller
       $data_item->kode = $kode;
       $data_item->supplier = $request->supplier;
       $data_item->jenis = $request->jenis;
-       $data_item->kategori = $request->kategori;
+      $data_item->kategori = $request->kategori;
 
       // if ($request->hasFile('foto')) {
       //    $data_item = $request->file('foto')->store('images', 'public');
