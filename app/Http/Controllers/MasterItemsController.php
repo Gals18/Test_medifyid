@@ -78,8 +78,8 @@ class MasterItemsController extends Controller
       }
       return back()->with('error', 'No image file found.');
 
-      dd($data_item);
-      die();
+      // dd($data_item);
+      // die();
       $data_item->save();
 
       return redirect('master-items');
