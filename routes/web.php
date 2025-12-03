@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\KategoriItemsController;
+use App\Models\KategoriItem;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   return view('welcome');
 });
 
 Auth::routes();
@@ -43,3 +45,5 @@ Route::get('/kategori-items/delete/{id}', [App\Http\Controllers\KategoriItemsCon
 
 
 Route::get('/kategori-items/update-random-data', [App\Http\Controllers\KategoriItemsController::class, 'updateRandomData']);
+// Rute baru untuk mengunduh PDF
+Route::get('/kategori-items/export/pdf', [KategoriItemsController::class, 'cetakPdf'])->name('items.export.pdf');
