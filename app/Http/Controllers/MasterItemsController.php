@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KategoriItem;
 use App\Models\MasterItem;
 use Illuminate\Http\Request;
 
@@ -46,6 +47,7 @@ class MasterItemsController extends Controller
       } else {
          $item = MasterItem::find($id);
       }
+      $data['kategori'] = KategoriItem::all();
       $data['item'] = $item;
       $data['method'] = $method;
       return view('master_items.form.index', $data);
@@ -76,6 +78,7 @@ class MasterItemsController extends Controller
       $data_item->kode = $kode;
       $data_item->supplier = $request->supplier;
       $data_item->jenis = $request->jenis;
+       $data_item->kategori = $request->kategori;
 
       // if ($request->hasFile('foto')) {
       //    $data_item = $request->file('foto')->store('images', 'public');

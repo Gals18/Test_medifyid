@@ -47,6 +47,17 @@
                 <optio @if ($selected == 'ATK') selected @endif>ATK</option>
         </select>
     </div>
+
+    @php $selected = $item->kategori ?? '' @endphp
+    <div class="form-group">
+        <label>Kategori</label>
+        <select class="form-control" required name="jenis">
+            <option @if ($selected == '') selected @endif value="">--Pilih--</option>
+            @foreach ($kategori as $item)
+                <option @if ($selected == $item->kategori) selected @endif>{{ $item->nama }}</option>
+            @endforeach
+        </select>
+    </div>
     {{-- <div class="form-group">
         <label>Upload Foto</label>
         <input type="file" class="form-control" name="foto" value="{{ $item->foto ?? '' }}">
